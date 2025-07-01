@@ -148,7 +148,7 @@ app.patch("/tasks/:id/status", authMiddleware, async (req, res) => {
 });
 
 // Update task priority
-app.patch("/tasks:id/priority", authMiddleware, async (req, res) => {
+app.patch("/tasks/:id/priority", authMiddleware, async (req, res) => {
   const { priority } = req.body;
   const task = await Task.findOneAndUpdate(
     { _id: req.params.id, userId: req.userId },
